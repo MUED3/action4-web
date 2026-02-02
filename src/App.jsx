@@ -52,9 +52,9 @@ const TIMELINE = [
     status: 'upcoming' 
   },
   { 
-    task: 'วันจัดงานประชุมวิชาการ', 
+    task: 'วันจัดงานประชุมวิชาการ (Online)', 
     date: '7 พฤษภาคม 2569', 
-    description: 'วันจัดการประชุมวิชาการ ACTION 4th',
+    description: 'วันจัดการประชุมวิชาการด้านดนตรีฯ ACTION 4th',
     status: 'upcoming',
     highlight: true
   },
@@ -235,7 +235,7 @@ const App = () => {
                 <MapPin size={24} className="text-laterite" />
                 <div className="text-left">
                   <p className="text-xs text-indigo/60 font-medium uppercase tracking-wide">สถานที่</p>
-                  <span className="font-bold text-lg">มหาวิทยาลัยขอนแก่น</span>
+                  <span className="font-bold text-lg">คณะศิลปกรรมศาสตร์<br />มหาวิทยาลัยขอนแก่น</span>
                 </div>
               </div>
             </motion.div>
