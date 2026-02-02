@@ -21,39 +21,39 @@ const NAV = [
 ];
 
 const TIMELINE = [
-  { 
-    task: 'ประกาศรับบทความ', 
-    date: 'กุมภาพันธ์ 2569', 
+  {
+    task: 'ประกาศรับบทความ',
+    date: 'กุมภาพันธ์ 2569',
     description: 'เปิดรับบทความและบทคัดย่อผ่านเว็บไซต์',
-    status: 'active' 
+    status: 'active'
   },
-  { 
-    task: 'ปิดรับบทความ', 
-    date: '30 มีนาคม 2569', 
+  {
+    task: 'ปิดรับบทความ',
+    date: '30 มีนาคม 2569',
     description: 'หมดเขตการส่งบทความและบทคัดย่อ',
-    status: 'upcoming' 
+    status: 'upcoming'
   },
-  { 
-    task: 'ประกาศผลพิจารณา', 
-    date: '15 เมษายน 2569', 
+  {
+    task: 'ประกาศผลพิจารณา',
+    date: '15 เมษายน 2569',
     description: 'แจ้งผลการพิจารณาจากผู้ทรงคุณวุฒิ',
-    status: 'upcoming' 
+    status: 'upcoming'
   },
-  { 
-    task: 'ส่งฉบับแก้ไข', 
-    date: '30 เมษายน 2569', 
+  {
+    task: 'ส่งฉบับแก้ไข',
+    date: '30 เมษายน 2569',
     description: 'ส่งบทความฉบับแก้ไขตามข้อเสนอแนะ',
-    status: 'upcoming' 
+    status: 'upcoming'
   },
-  { 
-    task: 'ประกาศรายชื่อผู้นำเสนอ', 
-    date: '1 พฤษภาคม 2569', 
+  {
+    task: 'ประกาศรายชื่อผู้นำเสนอ',
+    date: '1 พฤษภาคม 2569',
     description: 'ประกาศรายชื่อผู้นำเสนออย่างเป็นทางการ',
-    status: 'upcoming' 
+    status: 'upcoming'
   },
-  { 
-    task: 'วันจัดงานประชุมวิชาการ (Online)', 
-    date: '7 พฤษภาคม 2569', 
+  {
+    task: 'วันจัดงานประชุมวิชาการ (Online)',
+    date: '7 พฤษภาคม 2569',
     description: 'วันจัดการประชุมวิชาการ ACTION 4th',
     status: 'upcoming',
     highlight: true
@@ -105,7 +105,7 @@ const AWARDS = [
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+
   return (
     <div className="min-h-screen font-sans text-indigo bg-cotton antialiased">
       {/* Navbar - Enhanced with better contrast and spacing */}
@@ -119,10 +119,10 @@ const App = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <img 
-                src={logoImage} 
-                alt="ACTION 4th Conference Logo" 
-                className="h-14 w-auto transition-transform duration-300 group-hover:scale-105" 
+              <img
+                src={logoImage}
+                alt="ACTION 4th Conference Logo"
+                className="h-14 w-auto transition-transform duration-300 group-hover:scale-105"
               />
             </motion.button>
 
@@ -188,16 +188,16 @@ const App = () => {
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <motion.img 
-              src={logoImage} 
-              alt="ACTION 4th Conference" 
-              className="h-40 md:h-48 lg:h-56 w-auto mx-auto mb-8 drop-shadow-xl" 
-              initial={{ opacity: 0, scale: 0.9 }} 
-              animate={{ opacity: 1, scale: 1 }} 
-              transition={{ duration: 0.6, ease: "easeOut" }} 
+            <motion.img
+              src={logoImage}
+              alt="ACTION 4th Conference"
+              className="h-40 md:h-48 lg:h-56 w-auto mx-auto mb-8 drop-shadow-xl"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
             />
 
-            <motion.div 
+            <motion.div
               className="inline-flex items-center gap-2 px-6 py-3 bg-laterite/10 text-laterite font-semibold text-sm rounded-full border border-laterite/30 mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -208,7 +208,7 @@ const App = () => {
             </motion.div>
 
             {/* Theme title - Now in single line with better responsive handling */}
-            <motion.h1 
+            <motion.h1
               className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-indigo mb-6 leading-tight px-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -221,7 +221,7 @@ const App = () => {
               </span>
             </motion.h1>
 
-            <motion.div 
+            <motion.div
               className="flex flex-col sm:flex-row justify-center gap-4 mb-10 mt-12"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -252,8 +252,8 @@ const App = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <a 
-                href="#submission" 
+              <a
+                href="#submission"
                 className="inline-flex items-center gap-3 bg-gradient-to-r from-laterite to-gold text-white px-8 py-4 rounded-xl font-bold text-base shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-laterite focus:ring-offset-2"
               >
                 <FileText size={20} />
@@ -273,10 +273,10 @@ const App = () => {
         }}></div>
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }} 
-            whileInView={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.6 }} 
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true, margin: "-100px" }}
             className="text-center"
           >
@@ -311,7 +311,7 @@ const App = () => {
                   </h3>
                 </div>
                 <p className="text-base text-indigo/80 leading-relaxed text-left">
-                Deep listening represents far more than the act of hearing—it is a human capacity that integrates perception, emotion, memory, and cultural understanding. This conference aims to explore how listening shapes musical experience across traditions, communities, and educational spaces. By foregrounding the interconnected dimensions of humanity, mind, and culture, the conference encourages new insights into the ways music fosters awareness, creativity, empathy, and meaningful learning. Through this lens, deep listening becomes a transformative practice that enriches musical engagement and supports the development of the whole person
+                  Deep listening represents far more than the act of hearing—it is a human capacity that integrates perception, emotion, memory, and cultural understanding. This conference aims to explore how listening shapes musical experience across traditions, communities, and educational spaces. By foregrounding the interconnected dimensions of humanity, mind, and culture, the conference encourages new insights into the ways music fosters awareness, creativity, empathy, and meaningful learning. Through this lens, deep listening becomes a transformative practice that enriches musical engagement and supports the development of the whole person
                 </p>
               </div>
             </div>
@@ -322,10 +322,10 @@ const App = () => {
       {/* Collaborating Institutions - Cleaner grid layout */}
       <section id="collaboration" className="py-20 md:py-28 bg-cotton">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }} 
-            whileInView={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.6 }} 
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
@@ -343,7 +343,7 @@ const App = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { name: 'คณะมนุษยศาสตร์', university: 'มหาวิทยาลัยนเรศวร', logo: nuLogo, url: 'https://huso.nu.ac.th/'},
+              { name: 'คณะมนุษยศาสตร์', university: 'มหาวิทยาลัยนเรศวร', logo: nuLogo, url: 'https://huso.nu.ac.th/' },
               { name: 'คณะอักษรศาสตร์', university: 'มหาวิทยาลัยศิลปากร', logo: silpakornLogo, url: 'https://www.facebook.com/silpakornfacultyofarts/' },
               { name: 'คณะศิลปกรรมศาสตร์', university: 'มหาวิทยาลัยราชภัฏสงขลา', logo: songkhlaLogo, url: 'https://www.facebook.com/facultyofarts.srhu/' },
               { name: 'คณะศิลปกรรมศาสตร์', university: 'มหาวิทยาลัยขอนแก่น', logo: kknLogo, url: 'https://fa.kku.ac.th/' },
@@ -357,25 +357,31 @@ const App = () => {
                 transition={{ duration: 0.5, delay: idx * 0.05 }}
                 viewport={{ once: true, margin: "-50px" }}
               >
-                <div className="h-full p-8 bg-white rounded-xl border border-indigo/15 hover:border-gold/50 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center group">
-                  <div className="mb-6 h-28 flex items-center justify-center w-full">
-                    <img 
-                      href={institution.url}
-                      src={institution.logo} 
-                      alt={`${institution.university} logo`}
-                      className="h-full max-w-[85%] object-contain group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
+                <a
+                  href={institution.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block h-full"
+                >
+                  <div className="h-full p-8 bg-white rounded-xl border border-indigo/15 hover:border-gold/50 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center group cursor-pointer">
+                    <div className="mb-6 h-28 flex items-center justify-center w-full">
+                      <img
+                        src={institution.logo}
+                        alt={`${institution.university} logo`}
+                        className="h-full max-w-[85%] object-contain group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="text-center">
+                      <h3 className="text-sm font-bold text-indigo mb-1 group-hover:text-laterite transition-colors duration-300">
+                        {institution.name}
+                      </h3>
+                      <p className="text-sm text-indigo/60 group-hover:text-indigo transition-colors duration-300">
+                        {institution.university}
+                      </p>
+                    </div>
                   </div>
-                  <div className="text-center">
-                    <h3 className="text-sm font-bold text-indigo mb-1">
-                      {institution.name}
-                    </h3>
-                    <p className="text-sm text-indigo/60">
-                      {institution.university}
-                    </p>
-                  </div>
-                </div>
+                </a>
               </motion.div>
             ))}
           </div>
@@ -385,10 +391,10 @@ const App = () => {
       {/* Speaker Section - Enhanced visual hierarchy */}
       <section id="speaker" className="py-20 md:py-28 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }} 
-            whileInView={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.6 }} 
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
@@ -398,18 +404,18 @@ const App = () => {
             </div>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-indigo">วิทยากรบรรยายหลัก</h2>
           </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }} 
-            whileInView={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.6, delay: 0.2 }} 
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true, margin: "-100px" }}
             className="flex flex-col items-center"
           >
             <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-indigo/20 mb-10">
-              <img 
-                src={speakerImage} 
-                alt="Dr. John Garzoli - Keynote Speaker" 
+              <img
+                src={speakerImage}
+                alt="Dr. John Garzoli - Keynote Speaker"
                 className="w-full max-w-md h-auto object-cover"
               />
             </div>
@@ -428,10 +434,10 @@ const App = () => {
       {/* Presentation Categories - Improved card design */}
       <section id="categories" className="py-20 md:py-28 bg-cotton">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }} 
-            whileInView={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.6 }} 
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
@@ -525,10 +531,10 @@ const App = () => {
       {/* Timeline Section - Cleaner timeline design */}
       <section id="timeline" className="py-20 md:py-28 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }} 
-            whileInView={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.6 }} 
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
@@ -541,14 +547,14 @@ const App = () => {
             </h2>
             <p className="text-lg text-indigo/70">กำหนดการและวันสำคัญ</p>
           </motion.div>
-          
+
           <div className="space-y-4">
             {TIMELINE.map((item, idx) => (
-              <motion.div 
-                key={idx} 
-                initial={{ opacity: 0, x: -20 }} 
-                whileInView={{ opacity: 1, x: 0 }} 
-                transition={{ duration: 0.5, delay: idx * 0.05 }} 
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.05 }}
                 viewport={{ once: true, margin: "-50px" }}
                 className="relative pl-10 pb-4"
               >
@@ -556,35 +562,35 @@ const App = () => {
                 {idx !== TIMELINE.length - 1 && (
                   <div className="absolute left-3.5 top-7 bottom-0 w-0.5 bg-indigo/20"></div>
                 )}
-                
+
                 {/* Timeline dot */}
                 <div className={`absolute left-0 top-1.5 w-7 h-7 rounded-full border-3 border-white shadow-md flex items-center justify-center
-                  ${item.highlight 
-                    ? 'bg-gradient-to-br from-laterite to-gold' 
-                    : item.status === 'active' 
-                      ? 'bg-laterite' 
+                  ${item.highlight
+                    ? 'bg-gradient-to-br from-laterite to-gold'
+                    : item.status === 'active'
+                      ? 'bg-laterite'
                       : 'bg-indigo/40'}`}>
                   {item.highlight && (
                     <span className="text-white text-xs font-bold">★</span>
                   )}
                 </div>
-                
+
                 {/* Content card */}
                 <div className={`p-6 rounded-xl border transition-all duration-300 hover:shadow-md
-                  ${item.highlight 
-                    ? 'bg-gradient-to-br from-laterite/5 to-gold/5 border-laterite/30' 
-                    : item.status === 'active' 
-                      ? 'bg-laterite/5 border-laterite/30' 
+                  ${item.highlight
+                    ? 'bg-gradient-to-br from-laterite/5 to-gold/5 border-laterite/30'
+                    : item.status === 'active'
+                      ? 'bg-laterite/5 border-laterite/30'
                       : 'bg-white border-indigo/20'}`}>
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
                     <h3 className={`font-bold text-lg ${item.highlight ? 'text-laterite' : 'text-indigo'}`}>
                       {item.task}
                     </h3>
                     <span className={`text-sm font-semibold whitespace-nowrap px-3 py-1 rounded-full
-                      ${item.highlight 
-                        ? 'bg-laterite/20 text-laterite' 
-                        : item.status === 'active' 
-                          ? 'bg-laterite/20 text-laterite' 
+                      ${item.highlight
+                        ? 'bg-laterite/20 text-laterite'
+                        : item.status === 'active'
+                          ? 'bg-laterite/20 text-laterite'
                           : 'bg-indigo/20 text-indigo'}`}>
                       {item.date}
                     </span>
@@ -604,12 +610,12 @@ const App = () => {
           <div className="absolute top-20 left-20 w-96 h-96 border border-white rounded-full"></div>
           <div className="absolute bottom-20 right-20 w-80 h-80 border border-white rounded-full"></div>
         </div>
-        
+
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }} 
-            whileInView={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.6 }} 
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
@@ -622,13 +628,13 @@ const App = () => {
               เข้าร่วมเป็นส่วนหนึ่งของการประชุมวิชาการระดับชาติ
             </p>
           </motion.div>
-          
+
           <div className="grid lg:grid-cols-2 gap-10 mb-16">
             {/* Submission Templates */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              transition={{ duration: 0.6 }} 
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true, margin: "-100px" }}
             >
               <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
@@ -647,9 +653,9 @@ const App = () => {
                     </span>
                   </div>
                   <p className="text-white/70 mb-5 text-sm">ความยาวไม่เกิน 300 คำ (ไทย/อังกฤษ)</p>
-                  <a 
-                    href="/Template_of Abstract for_publication ACTION_4_KKU.docx" 
-                    download 
+                  <a
+                    href="/Template_of Abstract for_publication ACTION_4_KKU.docx"
+                    download
                     className="inline-flex items-center gap-2 text-sm font-bold text-white bg-laterite hover:bg-laterite/80 px-5 py-2.5 rounded-lg transition-colors duration-200 shadow-md"
                   >
                     <Download size={16} />
@@ -666,9 +672,9 @@ const App = () => {
                     </span>
                   </div>
                   <p className="text-white/70 mb-5 text-sm">ความยาวไม่เกิน 15 หน้า (ไทย/อังกฤษ)</p>
-                  <a 
-                    href="/Template_of Full_paper for_publication ACTION_4_KKU.docx" 
-                    download 
+                  <a
+                    href="/Template_of Full_paper for_publication ACTION_4_KKU.docx"
+                    download
                     className="inline-flex items-center gap-2 text-sm font-bold text-white bg-laterite hover:bg-laterite/80 px-5 py-2.5 rounded-lg transition-colors duration-200 shadow-md"
                   >
                     <Download size={16} />
@@ -677,12 +683,12 @@ const App = () => {
                 </div>
               </div>
             </motion.div>
-            
+
             {/* Fees */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              transition={{ duration: 0.6, delay: 0.2 }} 
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true, margin: "-100px" }}
             >
               <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
@@ -691,7 +697,7 @@ const App = () => {
                 </div>
                 ค่าธรรมเนียม
               </h3>
-              
+
               <div className="p-8 bg-gradient-to-br from-laterite via-laterite/95 to-gold/80 rounded-xl border border-laterite/50 shadow-2xl">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="p-2 bg-white/20 rounded-lg">
@@ -705,7 +711,7 @@ const App = () => {
                   <span className="text-5xl font-black">500</span>
                   <span className="text-xl">บาท / บทความ</span>
                 </div>
-                
+
                 <div className="space-y-3 mb-6">
                   <div className="flex items-start gap-2 text-white/95 text-sm">
                     <ChevronRight size={18} className="flex-shrink-0 mt-0.5 text-gold" />
@@ -720,12 +726,12 @@ const App = () => {
                     </span>
                   </div>
                 </div>
-                
+
                 <div className="h-px bg-white/20 my-6"></div>
-                <a 
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSc0f0skMyo7zi4AAOScsCfDongIx1vEpfh953aBbP5di9ym1Q/viewform?usp=header" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSc0f0skMyo7zi4AAOScsCfDongIx1vEpfh953aBbP5di9ym1Q/viewform?usp=header"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full bg-white text-laterite px-6 py-3.5 rounded-lg font-bold hover:bg-cotton transition-colors duration-300 shadow-lg"
                 >
                   <ExternalLink size={20} />
@@ -757,8 +763,8 @@ const App = () => {
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   viewport={{ once: true, margin: "-50px" }}
                   className={`p-8 rounded-xl border transition-all duration-300 hover:shadow-xl
-                    ${award.special 
-                      ? 'bg-gradient-to-br from-indigo/30 via-laterite/20 to-gold/20 border-gold/30' 
+                    ${award.special
+                      ? 'bg-gradient-to-br from-indigo/30 via-laterite/20 to-gold/20 border-gold/30'
                       : 'bg-white/5 border-white/10'}`}
                 >
                   <div className="flex flex-col items-center text-center">
@@ -786,10 +792,10 @@ const App = () => {
       {/* Contact Section */}
       <section id="contact" className="py-20 md:py-28 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }} 
-            whileInView={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.6 }} 
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
@@ -802,11 +808,11 @@ const App = () => {
             </h2>
             <p className="text-lg text-indigo/70">หากมีข้อสงสัยหรือต้องการข้อมูลเพิ่มเติม</p>
           </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }} 
-            whileInView={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.6, delay: 0.2 }} 
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true, margin: "-100px" }}
             className="grid md:grid-cols-2 gap-6 mb-10"
           >
@@ -817,8 +823,8 @@ const App = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg text-indigo mb-2">อีเมล</h3>
-                  <a 
-                    href="mailto:action.4@gmail.com" 
+                  <a
+                    href="mailto:action.4@gmail.com"
                     className="text-indigo/70 hover:text-laterite transition-colors duration-200"
                   >
                     action.4@gmail.com
@@ -826,7 +832,7 @@ const App = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="p-6 bg-cotton rounded-xl border border-indigo/20 hover:border-gold/50 hover:shadow-md transition-all duration-300">
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-laterite rounded-lg text-white shadow-md">
@@ -834,8 +840,8 @@ const App = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg text-indigo mb-2">โทรศัพท์</h3>
-                  <a 
-                    href="tel:+66043202396" 
+                  <a
+                    href="tel:+66043202396"
                     className="text-indigo/70 hover:text-laterite transition-colors duration-200"
                   >
                     043-202396
@@ -901,11 +907,11 @@ const App = () => {
               <h4 className="text-white font-bold text-base mb-4">ข้อมูล</h4>
               <ul className="space-y-2.5 text-sm">
                 <li className="flex items-start gap-2">
-                  <MapPin size={16} className="text-gold flex-shrink-0 mt-0.5" /> 
+                  <MapPin size={16} className="text-gold flex-shrink-0 mt-0.5" />
                   <span>คณะศิลปกรรมศาสตร์<br />มหาวิทยาลัยขอนแก่น</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Calendar size={16} className="text-gold flex-shrink-0" /> 
+                  <Calendar size={16} className="text-gold flex-shrink-0" />
                   <span>7 พฤษภาคม 2569</span>
                 </li>
               </ul>
@@ -914,13 +920,13 @@ const App = () => {
               <h4 className="text-white font-bold text-base mb-4">ติดต่อ</h4>
               <ul className="space-y-2.5 text-sm">
                 <li className="flex items-center gap-2">
-                  <Mail size={16} className="text-gold flex-shrink-0" /> 
+                  <Mail size={16} className="text-gold flex-shrink-0" />
                   <a href="mailto:action.4@gmail.com" className="hover:text-gold transition-colors duration-200">
                     action.4@gmail.com
                   </a>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Phone size={16} className="text-gold flex-shrink-0" /> 
+                  <Phone size={16} className="text-gold flex-shrink-0" />
                   <a href="tel:+66043202396" className="hover:text-gold transition-colors duration-200">
                     043-202396
                   </a>
@@ -929,7 +935,7 @@ const App = () => {
             </div>
             <div>
               <h4 className="text-white font-bold text-base mb-4">ติดตามเรา</h4>
-              <button 
+              <button
                 className="p-2.5 bg-white/10 rounded-lg hover:bg-gold/20 hover:text-gold transition-all duration-300"
                 aria-label="Visit website"
               >
