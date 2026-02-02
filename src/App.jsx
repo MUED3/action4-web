@@ -295,10 +295,9 @@ const App = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 leading-tight bg-gradient-to-r from-indigo via-indigo/80 to-laterite bg-clip-text text-transparent"
+              className="text-l md:text-4xl lg:text-5xl font-black mb-4 leading-tight bg-gradient-to-r from-indigo via-indigo/80 to-laterite bg-clip-text text-transparent"
             >
-              การฟังดนตรีอย่างลึกซึ้ง:<br />
-              <span className="bg-gradient-to-r from-indigo to-laterite bg-clip-text text-transparent">ความเป็นมนุษย์ จิตใจ วัฒนธรรม และการศึกษา</span>
+              การฟังดนตรีอย่างลึกซึ้ง: ความเป็นมนุษย์ จิตใจ วัฒนธรรม และการศึกษา<br />
             </motion.h2>
 
             {/* Main Content */}
@@ -852,7 +851,7 @@ const App = () => {
                 <div>
                   <h3 className="font-bold text-xl text-indigo mb-2">อีเมล</h3>
                   <a href="mailto:action4@kku.ac.th" className="text-indigo/70 hover:text-laterite transition-colors duration-300 text-lg">
-                    action4@kku.ac.th
+                    action.4@gmail.com
                   </a>
                 </div>
               </div>
@@ -866,7 +865,7 @@ const App = () => {
                 <div>
                   <h3 className="font-bold text-xl text-indigo mb-2">โทรศัพท์</h3>
                   <a href="tel:+6643202804" className="text-indigo/70 hover:text-laterite transition-colors duration-300 text-lg">
-                    +66 (0)43-202-804
+                    043-202396
                   </a>
                 </div>
               </div>
