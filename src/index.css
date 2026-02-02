@@ -1,0 +1,14 @@
+@import './fonts.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F4F1EA; /* ใช้สี Cotton เป็นพื้นหลังหลัก */
+  color: #1A3C59; /* ใช้สี Indigo เป็นสีตัวอักษรหลัก */
+}

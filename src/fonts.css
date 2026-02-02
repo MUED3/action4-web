@@ -1,0 +1,112 @@
+/* GraphikTH Font Family */
+@font-face {
+  font-family: 'GraphikTH';
+  src: url('./assets/font/GraphikTH-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GraphikTH';
+  src: url('./assets/font/GraphikTH-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'GraphikTH';
+  src: url('./assets/font/GraphikTH-Extralight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GraphikTH';
+  src: url('./assets/font/GraphikTH-ExtralightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'GraphikTH';
+  src: url('./assets/font/GraphikTH-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GraphikTH';
+  src: url('./assets/font/GraphikTH-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'GraphikTH';
+  src: url('./assets/font/GraphikTH-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GraphikTH';
+  src: url('./assets/font/GraphikTH-RegularItalic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'GraphikTH';
+  src: url('./assets/font/GraphikTH-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GraphikTH';
+  src: url('./assets/font/GraphikTH-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'GraphikTH';
+  src: url('./assets/font/GraphikTH-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GraphikTH';
+  src: url('./assets/font/GraphikTH-SemiboldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'GraphikTH';
+  src: url('./assets/font/GraphikTH-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GraphikTH';
+  src: url('./assets/font/GraphikTH-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'GraphikTH';
+  src: url('./assets/font/GraphikTH-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GraphikTH';
+  src: url('./assets/font/GraphikTH-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
