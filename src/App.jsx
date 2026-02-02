@@ -3,6 +3,13 @@ import { Calendar, FileText, User, Award, Clock, MapPin, Globe, Menu, X, Chevron
 import { motion } from 'framer-motion';
 import logoImage from './assets/action4logo.png';
 import speakerImage from './assets/johngarzoli.jpg';
+import nuLogo from './assets/huso-nu.png';
+import silpakornLogo from './assets/Faculty_of_Arts,_Silpakorn_University_Logo.png';
+import kknLogo from './assets/Fine_and_Applied_Arts_KKU_Thai_Emblem.png';
+import mupLogo from './assets/MUPA.png';
+import bundLogo from './assets/Bunditpatanasilpa_Institute_Logo.png';
+import bupaLogo from './assets/MUPA.png';
+import songkhlaLogo from './assets/fa-sk.png';
 
 const NAV = [
   { href: '#about', label: 'เกี่ยวกับงาน' },
@@ -55,29 +62,16 @@ const TIMELINE = [
 
 const PRESENTATION_CATEGORIES = [
   {
-    icon: BookOpen,
-    title: 'ดนตรีศึกษา',
-    description: 'การเรียนการสอนดนตรี หลักสูตร และนวัตกรรมการศึกษา',
-    color: 'from-blue-500 to-indigo-600'
+    icon: User,
+    title: 'การนำเสนอรายบุคคล (Individual Presentation)',
+    description: 'การนำเสนอผลงานวิจัยหรือบทความโดยบุคคลเดียว',
+    color: 'from-blue-500 to-indigo-600',
   },
   {
-    icon: Music,
-    title: 'ดนตรีวิทยา',
-    description: 'ดนตรีไทย ดนตรีตะวันตก และดนตรีพื้นเมือง',
+    icon: Users,
+    title: 'การนำเสนออภิปรายเป็นกลุ่มคณะ 4 เรื่อง/กลุ่ม (Panel Presentation)',
+    description: 'การนำเสนอแบบกลุ่มคณะ โดยแต่ละกลุ่มประกอบด้วย 4 เรื่องที่มีประเด็นหรือหัวข้อใกล้เคียงกัน',
     color: 'from-purple-500 to-pink-600',
-    subcategories: ['ดนตรีไทย', 'ดนตรีตะวันตก', 'ดนตรีพื้นเมือง']
-  },
-  {
-    icon: Presentation,
-    title: 'ดนตรีสร้างสรรค์',
-    description: 'การแต่งเพลง การประพันธ์ และนวัตกรรมดนตรี',
-    color: 'from-orange-500 to-red-600'
-  },
-  {
-    icon: Heart,
-    title: 'ดนตรีเพื่อสุขภาพ',
-    description: 'ดนตรีบำบัด สุขภาวะ (Well-being) และสุขภาพจิต',
-    color: 'from-green-500 to-teal-600'
   },
 ];
 
@@ -101,7 +95,7 @@ const AWARDS = [
   {
     rank: '★',
     title: 'รางวัลบทความที่สอดคล้องกับ Theme',
-    description: 'บทความที่สะท้อนแนวคิด "การฟังดนตรีอย่างลึกซึ้ง" ได้ดีเยี่ยม',
+    description: 'บทความที่สะท้อนแนวคิด "Deep Listerning" ได้ดีเยี่ยม',
     details: 'จำนวนรางวัลขึ้นอยู่กับคุณภาพของบทความ',
     gradient: 'from-indigo-400 via-purple-500 to-pink-600',
     certificate: true,
@@ -115,62 +109,74 @@ const App = () => {
   return (
     <div className="min-h-screen font-sans text-indigo bg-cotton">
       {/* Navbar */}
-      <nav className="sticky top-0 z-50 bg-white/98 backdrop-blur-xl border-b border-indigo/10 shadow-sm">
+      <nav className="sticky top-0 z-50 bg-white/98 backdrop-blur-lg border-b border-slate-200/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20 items-center">
-            <motion.img 
-              src={logoImage} 
-              alt="ACTION 4th" 
-              className="h-12 md:h-14 w-auto cursor-pointer"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
+          <div className="flex justify-between items-center h-16 lg:h-20">
+            {/* Logo */}
+            <motion.button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            />
-            <div className="hidden lg:flex gap-1 items-center">
+              className="flex items-center group"
+              whileHover={{ opacity: 0.8 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="relative">
+                <img src={logoImage} alt="ACTION 4th" className="h-10 lg:h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
+              </div>
+            </motion.button>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center gap-12">
               {NAV.map((item) => (
-                <a 
-                  key={item.href} 
-                  href={item.href} 
-                  className="px-4 py-2.5 text-indigo font-medium hover:text-laterite transition-all duration-300 rounded-lg hover:bg-indigo/5 relative group text-sm"
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm font-medium text-indigo/80 transition-all duration-300 relative group"
                 >
-                  {item.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-laterite transition-all duration-300 group-hover:w-full"></span>
+                  <span className="relative inline-block">
+                    {item.label}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo to-laterite group-hover:w-full transition-all duration-500"></span>
+                  </span>
                 </a>
               ))}
             </div>
-            <div className="lg:hidden">
-              <button 
-                onClick={() => setIsMenuOpen(!isMenuOpen)} 
-                className="text-indigo p-2 hover:bg-indigo/5 rounded-lg transition-all duration-300"
-                aria-label="Toggle menu"
-              >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
+
+            {/* Mobile Menu Button */}
+            <motion.button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-slate-100 transition-colors duration-300"
+              aria-label="Toggle menu"
+              whileTap={{ scale: 0.95 }}
+            >
+              {isMenuOpen ? (
+                <X size={20} className="text-indigo" />
+              ) : (
+                <Menu size={20} className="text-indigo" />
+              )}
+            </motion.button>
           </div>
-        </div>
-        {isMenuOpen && (
-          <motion.div 
-            className="lg:hidden bg-white border-t border-indigo/10 shadow-lg"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-          >
-            <div className="px-4 py-4 space-y-1">
+
+          {/* Mobile Navigation */}
+          {isMenuOpen && (
+            <motion.div
+              className="lg:hidden border-t border-slate-200/50 py-4 space-y-1"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+            >
               {NAV.map((item) => (
-                <a 
-                  key={item.href} 
-                  href={item.href} 
-                  className="block px-4 py-3 text-indigo font-medium hover:bg-indigo/5 rounded-lg transition-all duration-300" 
+                <a
+                  key={item.href}
+                  href={item.href}
                   onClick={() => setIsMenuOpen(false)}
+                  className="block px-4 py-2 text-sm font-medium text-indigo/80 hover:text-indigo hover:bg-indigo/5 rounded-lg transition-all duration-300"
                 >
                   {item.label}
                 </a>
               ))}
-            </div>
-          </motion.div>
-        )}
+            </motion.div>
+          )}
+        </div>
       </nav>
 
       {/* Hero Section */}
@@ -194,7 +200,7 @@ const App = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <span className="w-2 h-2 bg-laterite rounded-full animate-pulse"></span>
-              การประชุมวิชาการระดับชาติด้านดนตรี ครั้งที่ 4
+              การประชุมวิชาการระดับชาติด้านดนตรี สำหรับนิสิตนักศึกษาระดับปริญญาตรี ครั้งที่ 4
             </motion.div>
             <motion.h1 
               className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-indigo mb-6 leading-tight"
@@ -202,7 +208,7 @@ const App = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              มนุษยธรรม จิตสำนึก<br />วัฒนธรรม และการศึกษา
+              DEEP LISTERNING in MUSIC
             </motion.h1>
             <motion.p 
               className="text-lg md:text-xl text-indigo/70 mb-4 max-w-3xl mx-auto"
@@ -210,16 +216,7 @@ const App = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <strong className="text-indigo">การฟังดนตรีอย่างลึกซึ้งในการศึกษา:</strong><br />
-              แนวทางสู่การพัฒนามนุษย์อย่างยั่งยืน
-            </motion.p>
-            <motion.p 
-              className="text-base text-indigo/60 mb-10 max-w-2xl mx-auto italic"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45 }}
-            >
-              Deep Listening in Music: Humanity, Mind, Culture, and Education
+              <h5 className="text-indigo">Humanity, Mind, Culture, and Education<br /></h5>
             </motion.p>
             <motion.div 
               className="flex flex-col sm:flex-row justify-center gap-4 mb-10"
@@ -260,11 +257,18 @@ const App = () => {
       </header>
 
       {/* About Section */}
-      <section id="about" className="py-24 md:py-32 bg-gradient-to-br from-indigo via-[#1a3c59] to-[#0f253a] text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-20 w-64 h-64 border border-white rounded-full"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 border border-white rounded-full"></div>
-        </div>
+      <section id="about" className="py-24 md:py-40 bg-white relative overflow-hidden">
+        {/* Dynamic Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo/8 via-transparent to-laterite/8"></div>
+        
+        {/* Animated Gradient Orbs */}
+        <div className="absolute -top-40 -left-40 w-80 h-80 bg-gradient-to-br from-indigo/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-tl from-laterite/15 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-br from-gold/10 to-transparent rounded-full blur-3xl" style={{animation: 'float 6s ease-in-out infinite'}}></div>
+
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.015]" style={{backgroundImage: 'linear-gradient(0deg, #000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '50px 50px'}}></div>
+
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: 40 }} 
@@ -273,76 +277,146 @@ const App = () => {
             viewport={{ once: true }} 
             className="text-center"
           >
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 text-gold font-semibold text-sm rounded-full border border-white/30 backdrop-blur-sm mb-8">
-              <span className="w-2 h-2 bg-gold rounded-full"></span>
-              หัวข้อหลักของการประชุม
-            </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-              การฟังดนตรีอย่างลึกซึ้งในการศึกษา
-            </h2>
-            <div className="max-w-4xl mx-auto mb-12">
-              <p className="text-lg md:text-xl text-white/90 mb-6 leading-relaxed">
-                การฟังอย่างลึกซึ้งมิได้เป็นเพียงการได้ยินเสียง หากแต่เป็นศักยภาพของมนุษย์ที่บูรณาการการรับรู้ อารมณ์ ความทรงจำ และความเข้าใจทางวัฒนธรรมเข้าด้วยกัน
-              </p>
-              <p className="text-base md:text-lg text-white/80 leading-relaxed">
-                สำรวจบทบาทของการฟังที่หล่อหลอมประสบการณ์ทางดนตรีในบริบทหลากหลาย ทั้งในเชิงประเพณี ชุมชน และการเรียนรู้ในสภาพแวดล้อมทางการศึกษา โดยเน้นมิติที่เชื่อมโยงกันของความเป็นมนุษย์ จิตใจ และวัฒนธรรม
-              </p>
-            </div>
-            
-            {/* Core Values */}
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <motion.div 
-                className="p-8 bg-white/10 rounded-2xl border border-white/20 hover:border-gold/50 hover:bg-white/15 transition-all duration-300 backdrop-blur-sm group"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Award className="text-gold mb-6 mx-auto group-hover:scale-110 transition-transform duration-300" size={48} />
-                <h3 className="font-bold text-xl mb-4">ความเป็นเลิศ</h3>
-                <p className="text-white/80 leading-relaxed">
-                  ส่งเสริมการวิจัยและการมีส่วนร่วมทางวิชาการคุณภาพสูง
-                </p>
-              </motion.div>
-              <motion.div 
-                className="p-8 bg-white/10 rounded-2xl border border-white/20 hover:border-gold/50 hover:bg-white/15 transition-all duration-300 backdrop-blur-sm group"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                <Globe className="text-gold mb-6 mx-auto group-hover:scale-110 transition-transform duration-300" size={48} />
-                <h3 className="font-bold text-xl mb-4">ความร่วมมือ</h3>
-                <p className="text-white/80 leading-relaxed">
-                  ความร่วมมือทางวิชาการระหว่างประเทศและการแบ่งปันความรู้
-                </p>
-              </motion.div>
-              <motion.div 
-                className="p-8 bg-white/10 rounded-2xl border border-white/20 hover:border-gold/50 hover:bg-white/15 transition-all duration-300 backdrop-blur-sm group"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                <FileText className="text-gold mb-6 mx-auto group-hover:scale-110 transition-transform duration-300" size={48} />
-                <h3 className="font-bold text-xl mb-4">นวัตกรรม</h3>
-                <p className="text-white/80 leading-relaxed">
-                  การสำรวจมุมมองใหม่ในด้านดนตรีและการศึกษา
-                </p>
-              </motion.div>
-            </div>
+            {/* Badge */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo/15 to-laterite/15 text-indigo font-semibold text-sm rounded-full border border-indigo/30 backdrop-blur-sm mb-8 hover:border-indigo/50 transition-all duration-300"
+            >
+              <span className="w-2.5 h-2.5 bg-gradient-to-r from-indigo to-laterite rounded-full animate-pulse"></span>
+              <span>หัวข้อหลักของการประชุม</span>
+            </motion.div>
 
-            {/* Deep Listening Philosophy */}
-            <div className="bg-white/5 rounded-2xl p-10 border border-white/10 backdrop-blur-sm">
-              <h3 className="text-2xl font-bold mb-6 text-gold">แนวคิดการฟังอย่างลึกซึ้ง</h3>
-              <p className="text-white/90 leading-relaxed text-lg mb-6">
-                การฟังอย่างลึกซึ้งจึงกลายเป็นกระบวนการอันทรงพลังที่ก้าวหนุนการพัฒนามนุษย์และเสริมสร้างความลุ่มลึกในการเข้าถึงโลกแห่งเสียงดนตรี
+            {/* Main Heading */}
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 leading-tight bg-gradient-to-r from-indigo via-indigo/80 to-laterite bg-clip-text text-transparent"
+            >
+              การฟังดนตรีอย่างลึกซึ้ง:<br />
+              <span className="bg-gradient-to-r from-indigo to-laterite bg-clip-text text-transparent">ความเป็นมนุษย์ จิตใจ วัฒนธรรม และการศึกษา</span>
+            </motion.h2>
+
+            {/* Main Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="max-w-4xl mx-auto mb-12"
+            >
+              <p className="text-base md:text-lg text-indigo/80 leading-relaxed mb-6">
+                การฟังอย่างลึกซึ้ง มิได้เป็นเพียงการได้ยินเสียง หากแต่เป็นศักยภาพของมนุษย์ที่บูรณาการการรับรู้ อารมณ์ ความทรงจำ และความเข้าใจทางวัฒนธรรมเข้าด้วยกัน สำรวจบทบาทของการฟังที่หล่อหลอมประสบการณ์ทางดนตรีในบริบทหลากหลาย ทั้งในเชิงประเพณี ชุมชน และการเรียนรู้ในสภาพแวดล้อมทางการศึกษา โดยเน้นมิติที่เชื่อมโยงกันของความเป็นมนุษย์ จิตใจ และวัฒนธรรม
               </p>
-              <p className="text-white/70 leading-relaxed italic">
-                "Deep listening becomes a transformative practice that enriches musical engagement and supports the development of the whole person."
+              <p className="text-base md:text-lg text-indigo/80 leading-relaxed">
+                การประชุมครั้งนี้มุ่งเปิดพื้นที่ให้เกิดมุมมองใหม่เกี่ยวกับวิธีที่ดนตรีส่งเสริมการตระหนักรู้ ความคิดสร้างสรรค์ ความเข้าอกเข้าใจ และการเรียนรู้อย่างมีความหมาย ผ่านกรอบคิดนี้ การฟังอย่างลึกซึ้งจึงกลายเป็นกระบวนการอันทรงพลังที่เกื้อหนุนการพัฒนามนุษย์และเสริมสร้างความลุ่มลึกในการเข้าถึงโลกแห่งเสียงดนตรี
               </p>
-            </div>
+            </motion.div>
+
+            {/* Philosophy Box */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="relative max-w-4xl mx-auto"
+            >
+              <div className="absolute -inset-1 bg-gradient-to-r from-indigo via-laterite to-gold opacity-20 rounded-3xl blur-xl"></div>
+              <div className="relative p-10 md:p-14 bg-gradient-to-br from-indigo/5 to-laterite/5 rounded-3xl border border-indigo/30 backdrop-blur-sm hover:border-indigo/50 transition-all duration-300">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-indigo to-laterite mt-2 flex-shrink-0"></div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-indigo">Deep Listening in Music: Humanity, Mind, Culture, and Education</h3>
+                </div>
+                <p className="text-base md:text-lg text-indigo/80 leading-relaxed mb-4">
+                  Deep listening represents far more than the act of hearing—it is a human capacity that integrates perception, emotion, memory, and cultural understanding. This conference aims to explore how listening shapes musical experience across traditions, communities, and educational spaces. By foregrounding the interconnected dimensions of humanity, mind, and culture, the conference encourages new insights into the ways music fosters awareness, creativity, empathy, and meaningful learning. Through this lens, deep listening becomes a transformative practice that enriches musical engagement and supports the development of the whole person.
+                </p>
+              </div>
+            </motion.div>
           </motion.div>
+        </div>
+
+        <style jsx>{`
+          @keyframes float {
+            0%, 100% { transform: translate(0, 0px); }
+            50% { transform: translate(30px, -30px); }
+          }
+        `}</style>
+      </section>
+
+      {/* Collaborating Institutions Section */}
+      <section id="collaboration" className="py-24 md:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.8 }} 
+            viewport={{ once: true }} 
+            className="text-center mb-20"
+          >
+            <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo/10 text-indigo font-semibold text-sm rounded-full border border-indigo/30 mb-6">
+              <Users size={16} className="text-indigo" />
+              สถาบันความร่วมมือ
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-indigo mb-4">
+              สถาบันการศึกษาที่เข้าร่วมความร่วมมือ
+            </h2>
+            <p className="text-lg text-indigo/70 max-w-3xl mx-auto leading-relaxed">
+              การประชุมวิชาการครั้งนี้เป็นผลมาจากความร่วมมือของสถาบันการศึกษาที่มุ่งเสริมสร้างวิชาการด้านดนตรี
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { name: 'คณะมนุษยศาสตร์', university: 'มหาวิทยาลัยนเรศวร', logo: nuLogo },
+              { name: 'คณะอักษรศาสตร์', university: 'มหาวิทยาลัยศิลปากร', logo: silpakornLogo },
+              { name: 'คณะศิลปกรรมศาสตร์', university: 'มหาวิทยาลัยราชภัฏสงขลา', logo: songkhlaLogo },
+              { name: 'คณะศิลปกรรมศาสตร์', university: 'มหาวิทยาลัยขอนแก่น', logo: kknLogo },
+              { name: 'คณะดนตรีและการแสดง', university: 'มหาวิทยาลัยบูรพา', logo: bupaLogo },
+              { name: 'วิทยาลัยนาฏศิลป', university: 'สถาบันบัณฑิตพัฒนศิลป์', logo: bundLogo },
+            ].map((institution, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: idx * 0.08 }}
+                viewport={{ once: true }}
+                className="h-full"
+              >
+                <div className="h-full p-8 md:p-10 bg-white rounded-2xl border border-indigo/15 hover:border-indigo/35 transition-all duration-300 shadow-md hover:shadow-xl flex flex-col items-center justify-center group overflow-hidden relative">
+                  {/* Background gradient on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-indigo/3 to-laterite/3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                  
+                  {/* Logo Container */}
+                  <div className="mb-8 h-32 flex items-center justify-center w-full relative">
+                    <div className="absolute inset-0 bg-indigo/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg"></div>
+                    <img 
+                      src={institution.logo} 
+                      alt={institution.university}
+                      className="h-full max-w-[90%] object-contain group-hover:scale-105 transition-transform duration-300 relative z-10"
+                      loading="lazy"
+                    />
+                  </div>
+                  
+                  {/* Text Content */}
+                  <div className="text-center w-full flex-1 flex flex-col justify-center">
+                    <h3 className="text-base font-bold text-indigo mb-2 leading-snug group-hover:text-indigo/80 transition-colors duration-300">
+                      {institution.name}
+                    </h3>
+                    <p className="text-sm text-indigo/60 leading-relaxed group-hover:text-indigo/70 transition-colors duration-300">
+                      {institution.university}
+                    </p>
+                  </div>
+                  
+                  {/* Bottom accent line */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-indigo/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -368,92 +442,22 @@ const App = () => {
             whileInView={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, delay: 0.2 }} 
             viewport={{ once: true }} 
-            className="bg-white rounded-3xl overflow-hidden shadow-2xl border border-indigo/10 hover:shadow-3xl transition-all duration-500"
+            className="flex flex-col items-center"
           >
-            <div className="flex flex-col lg:flex-row">
-              {/* Speaker Image */}
-              <div className="lg:w-5/12 relative overflow-hidden bg-gradient-to-br from-indigo to-[#0f253a]">
-                <div className="absolute inset-0 bg-gradient-to-t from-indigo/90 to-transparent z-10"></div>
-                <img 
-                  src={speakerImage} 
-                  alt="Dr. John Garzoli" 
-                  className="w-full h-full object-cover object-center min-h-[450px] lg:min-h-[650px]"
-                />
-                <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold/20 text-gold font-bold text-xs rounded-full border border-gold/30 backdrop-blur-sm mb-3">
-                    <Award size={14} />
-                    KEYNOTE SPEAKER
-                  </div>
-                  <p className="text-white/80 text-sm leading-relaxed">
-                    ผู้เชี่ยวชาญด้านดนตรีชาติพันธุ์ระดับนานาชาติ
-                  </p>
-                </div>
-              </div>
-              
-              {/* Speaker Info */}
-              <div className="lg:w-7/12 p-10 md:p-16 flex flex-col justify-center">
-                <div className="mb-8">
-                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-indigo mb-2 leading-tight">
-                    DR. JOHN
-                  </h3>
-                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-laterite mb-6 leading-tight">
-                    GARZOLI
-                  </h3>
-                  <div className="h-1 w-24 bg-gradient-to-r from-gold to-laterite rounded-full"></div>
-                </div>
-
-                <div className="space-y-8">
-                  {/* Affiliation */}
-                  <div className="p-6 bg-indigo/5 rounded-xl border-l-4 border-gold">
-                    <div className="flex items-start gap-4">
-                      <Globe size={24} className="text-gold flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-bold text-indigo text-xl mb-1">
-                          University of Adelaide
-                        </h4>
-                        <p className="text-indigo/70 text-lg">ศาสตราจารย์ดนตรีชาติพันธุ์</p>
-                        <p className="text-indigo/60 text-sm mt-1">ประเทศออสเตรเลีย</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="h-px bg-indigo/10"></div>
-
-                  {/* Credentials */}
-                  <div>
-                    <h4 className="font-bold text-indigo text-xl mb-6 flex items-center gap-3">
-                      <Award size={24} className="text-gold" />
-                      ประวัติการศึกษาและผลงาน
-                    </h4>
-                    <ul className="space-y-4">
-                      <li className="flex gap-4 items-start group">
-                        <span className="mt-2 w-2 h-2 rounded-full bg-gold flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>
-                        <span className="text-indigo/80 leading-relaxed">
-                          ปรัชญาดุษฎีบัณฑิต (ดนตรีชาติพันธุ์) มหาวิทยาลัยโมแนช ประเทศออสเตรเลีย
-                        </span>
-                      </li>
-                      <li className="flex gap-4 items-start group">
-                        <span className="mt-2 w-2 h-2 rounded-full bg-gold flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>
-                        <span className="text-indigo/80 leading-relaxed">
-                          นักวิจัยรับเชิญ มหาวิทยาลัยขอนแก่น ประเทศไทย
-                        </span>
-                      </li>
-                      <li className="flex gap-4 items-start group">
-                        <span className="mt-2 w-2 h-2 rounded-full bg-gold flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>
-                        <span className="text-indigo/80 leading-relaxed">
-                          บรรณาธิการ วารสารวิจัยวัฒนธรรมเมือง (Urban Culture Research Journal)
-                        </span>
-                      </li>
-                      <li className="flex gap-4 items-start group">
-                        <span className="mt-2 w-2 h-2 rounded-full bg-gold flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>
-                        <span className="text-indigo/80 leading-relaxed">
-                          ผู้เขียนบทความวิจัยที่ได้รับการตีพิมพ์ในวารสารระดับนานาชาติมากกว่า 50 เรื่อง
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+            <div className="relative overflow-hidden rounded-3xl shadow-2xl border border-indigo/10">
+              <img 
+                src={speakerImage} 
+                alt="Dr. John Garzoli" 
+                className="w-full max-w-md h-auto object-cover object-center"
+              />
+            </div>
+            <div className="text-center mt-12">
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-indigo mb-2 leading-tight">
+                DR. JOHN
+              </h3>
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-laterite leading-tight">
+                GARZOLI
+              </h3>
             </div>
           </motion.div>
         </div>
@@ -474,11 +478,8 @@ const App = () => {
               ประเภทการนำเสนอ
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-indigo mb-4">
-              กลุ่มการนำเสนอแบบ Oral Presentation
+              ประเภทการนำเสนอ
             </h2>
-            <p className="text-lg text-indigo/70 max-w-3xl mx-auto">
-              การนำเสนอด้วยวาจา จัดเป็น 4 กลุ่มหลัก (จำนวนกลุ่มอาจปรับเปลี่ยนตามจำนวนบทความและประเด็น)
-            </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -503,51 +504,63 @@ const App = () => {
                         <p className="text-indigo/70 leading-relaxed">{category.description}</p>
                       </div>
                     </div>
-                    
-                    {category.subcategories && (
-                      <div className="mt-6 pt-6 border-t border-indigo/10">
-                        <p className="text-sm font-semibold text-indigo/60 mb-3">อาจแยกเป็นกลุ่มย่อย:</p>
-                        <div className="flex flex-wrap gap-2">
-                          {category.subcategories.map((sub, subIdx) => (
-                            <span 
-                              key={subIdx}
-                              className="px-3 py-1.5 bg-indigo/5 text-indigo text-sm rounded-full border border-indigo/20"
-                            >
-                              {sub}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </motion.div>
               );
             })}
           </div>
 
-          {/* Panel Presentation Info */}
+          {/* Oral Presentation Groups */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="mt-12"
+            className="mt-16"
           >
-            <div className="p-8 bg-gradient-to-br from-laterite/5 to-gold/5 rounded-2xl border-2 border-laterite/20">
-              <div className="flex items-start gap-5">
-                <div className="p-4 bg-laterite rounded-xl text-white shadow-lg">
-                  <Users size={32} />
+            <div className="mb-12">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="p-4 bg-gradient-to-br from-laterite to-gold rounded-xl text-white shadow-lg">
+                  <Presentation size={32} />
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-indigo mb-3">Panel Presentation</h3>
-                  <p className="text-indigo/80 leading-relaxed mb-4">
-                    เปิดรับ Panel สำหรับสถาบันหรือกลุ่มนักศึกษา Panel ละ 4-5 เรื่อง สำหรับการนำเสนอในประเด็นที่เกี่ยวข้องกันหรือโครงการวิจัยร่วม
-                  </p>
-                  <div className="flex items-center gap-2 text-laterite font-semibold">
-                    <ChevronRight size={20} />
-                    <span>เหมาะสำหรับการนำเสนอเชิงบูรณาการ</span>
-                  </div>
+                <div>
+                  <h3 className="text-3xl font-bold text-indigo">Oral Presentation</h3>
+                  <p className="text-indigo/70 mt-2">การนำเสนอด้วยวาจา จัดเป็น 5 กลุ่มหลัก</p>
                 </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+                {[
+                  { num: '1', title: 'ดนตรีศึกษา', icon: BookOpen, color: 'from-amber-600 to-amber-700', bgGrad: 'from-[#D9A441] to-[#C89339]' },
+                  { num: '2', title: 'ดนตรีวิทยา', icon: Music, color: 'from-slate-700 to-slate-800', bgGrad: 'from-[#1A3C59] to-[#0f253a]' },
+                  { num: '3', title: 'ดนตรีสร้างสรรค์', icon: Presentation, color: 'from-orange-600 to-orange-700', bgGrad: 'from-[#A73B24] to-[#8e321e]' },
+                  { num: '4', title: 'ดนตรีเพื่อสุขภาพ\nwell being', icon: Heart, color: 'from-rose-600 to-rose-700', bgGrad: 'from-[#D65A7B] to-[#C74A6B]' },
+                  { num: '5', title: 'เทคโนโลยีดนตรี', icon: Globe, color: 'from-cyan-600 to-cyan-700', bgGrad: 'from-[#2E8B9E] to-[#1F6B7E]' },
+                ].map((group, idx) => {
+                  const IconComp = group.icon;
+                  return (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 40 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: idx * 0.1 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="h-full p-6 bg-white rounded-xl border-2 border-indigo/10 hover:border-indigo/30 transition-all duration-300 shadow-md hover:shadow-lg flex flex-col items-center text-center group overflow-hidden relative">
+                        {/* Background accent */}
+                        <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${group.bgGrad} opacity-10 rounded-full -mr-8 -mt-8`}></div>
+                        
+                        <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${group.color} text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 mb-4 relative z-10`}>
+                          <IconComp size={28} />
+                        </div>
+                        <span className="text-sm font-bold text-indigo/60 mb-2 relative z-10">กลุ่มที่ {group.num}</span>
+                        <h4 className="text-base font-bold text-indigo leading-snug whitespace-pre-line relative z-10">
+                          {group.title}
+                        </h4>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
           </motion.div>
@@ -652,7 +665,7 @@ const App = () => {
           </motion.div>
           
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
-            {/* Submission Categories */}
+            {/* Submission Categories - กล่องดาวน์โหลด Template */}
             <motion.div 
               initial={{ opacity: 0, y: 40 }} 
               whileInView={{ opacity: 1, y: 0 }} 
@@ -666,40 +679,30 @@ const App = () => {
                 รูปแบบการส่งบทความ
               </h3>
               <div className="space-y-6">
-                <div className="p-8 bg-white/10 rounded-2xl border border-white/20 backdrop-blur-sm hover:bg-white/15 transition-all duration-300">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-gold flex items-center justify-center font-black text-2xl text-indigo flex-shrink-0">1</div>
-                    <div>
-                      <h4 className="text-2xl font-bold text-gold mb-3">บทคัดย่อ (Abstract)</h4>
-                      <p className="text-white/80 mb-4 leading-relaxed">
-                        ความยาวไม่เกิน 300 คำ สามารถเขียนเป็นภาษาไทยหรืออังกฤษ
-                      </p>
-                      <div className="flex items-center gap-2 text-sm text-gold/90">
-                        <ChevronRight size={16} /> 
-                        พิจารณาโดยคณะผู้ทรงคุณวุฒิผ่านที่ประชุม
-                      </div>
-                    </div>
+                {/* กล่องที่ 1: Abstract */}
+                <div className="group p-8 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-sm hover:bg-white/10 transition">
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="text-2xl font-bold text-gold">1. บทคัดย่อ</h3>
+                    <span className="text-xs bg-indigo shadow-inner px-3 py-1 rounded-full text-white/70 border border-white/10">Abstract Only</span>
                   </div>
+                  <p className="text-white/70 mb-6">ความยาวไม่เกิน 300 คำ (ไทย/อังกฤษ)</p>
+                  {/* ปุ่มดาวน์โหลดไฟล์ */}
+                  <a href="/Template_of Abstract for_publication ACTION_4_KKU.docx" download className="inline-flex items-center gap-2 text-sm font-bold text-white bg-laterite hover:bg-[#8e321e] px-4 py-2 rounded-full transition shadow-lg">
+                    <FileText size={16} /> ดาวน์โหลดแบบฟอร์ม (Word)
+                  </a>
                 </div>
-                
-                <div className="p-8 bg-white/10 rounded-2xl border border-white/20 backdrop-blur-sm hover:bg-white/15 transition-all duration-300">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-gold flex items-center justify-center font-black text-2xl text-indigo flex-shrink-0">2</div>
-                    <div>
-                      <h4 className="text-2xl font-bold text-gold mb-3">บทความฉบับเต็ม (Full Paper)</h4>
-                      <p className="text-white/80 mb-4 leading-relaxed">
-                        ความยาวไม่เกิน 15 หน้า สามารถเขียนเป็นภาษาไทยหรืออังกฤษ
-                      </p>
-                      <div className="flex items-center gap-2 text-sm text-gold/90 mb-2">
-                        <ChevronRight size={16} /> 
-                        พิจารณาโดยผู้ทรงคุณวุฒิ 2 ท่านต่อเรื่อง
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-gold/90">
-                        <ChevronRight size={16} /> 
-                        ผู้ทรงคุณวุฒิจากทั้งภายในและภายนอกเครือข่าย
-                      </div>
-                    </div>
+
+                {/* กล่องที่ 2: Full Paper */}
+                <div className="group p-8 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-sm hover:bg-white/10 transition">
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="text-2xl font-bold text-gold">2. บทความฉบับเต็ม</h3>
+                    <span className="text-xs bg-indigo shadow-inner px-3 py-1 rounded-full text-white/70 border border-white/10">Full Paper</span>
                   </div>
+                  <p className="text-white/70 mb-6">ความยาวไม่เกิน 15 หน้า (ไทย/อังกฤษ)</p>
+                  {/* ปุ่มดาวน์โหลดไฟล์ */}
+                  <a href="/Template_of Full_paper for_publication ACTION_4_KKU.docx" download className="inline-flex items-center gap-2 text-sm font-bold text-white bg-laterite hover:bg-[#8e321e] px-4 py-2 rounded-full transition shadow-lg">
+                    <FileText size={16} /> ดาวน์โหลดแบบฟอร์ม (Word)
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -731,7 +734,7 @@ const App = () => {
                   </div>
                   <div className="flex items-baseline gap-3 mb-6">
                     <span className="text-6xl font-black text-white">500</span>
-                    <span className="text-2xl text-white/90">บาท / เรื่อง</span>
+                    <span className="text-2xl text-white/90">บาท / บทความ</span>
                   </div>
                   
                   <div className="space-y-4 mb-6">
@@ -760,19 +763,6 @@ const App = () => {
                     ลงทะเบียนส่งบทความ
                   </a>
                 </div>
-
-                {/* Website Info */}
-                <div className="p-6 bg-white/10 rounded-xl border border-white/20 backdrop-blur-sm">
-                  <div className="flex items-start gap-4">
-                    <Globe size={24} className="text-gold flex-shrink-0 mt-1" />
-                    <div>
-                      <h4 className="font-bold text-white text-lg mb-2">การส่งบทความผ่านเว็บไซต์</h4>
-                      <p className="text-white/80 text-sm leading-relaxed">
-                        ระบบการส่งบทความออนไลน์กำลังอยู่ระหว่างการพัฒนา จะเปิดให้บริการเร็วๆ นี้
-                      </p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </motion.div>
           </div>
@@ -783,16 +773,15 @@ const App = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="mb-20"
           >
-            <div className="text-center mb-12">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4">รางวัลการนำเสนอ</h3>
-              <p className="text-xl text-white/80">
-                ยกย่องเชิดชูผลงานวิจัยและการนำเสนอที่โดดเด่น
+            <div className="text-center mb-14">
+              <h3 className="text-4xl md:text-5xl font-extrabold text-gold mb-3 tracking-tight drop-shadow-lg">รางวัลการนำเสนอ</h3>
+              <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">
+                ยกย่องผลงานวิจัยและการนำเสนอที่โดดเด่น สะท้อนคุณภาพและความคิดสร้างสรรค์
               </p>
             </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-10">
               {AWARDS.map((award, idx) => (
                 <motion.div
                   key={idx}
@@ -800,36 +789,29 @@ const App = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: idx * 0.15 }}
                   viewport={{ once: true }}
-                  className={`p-8 rounded-2xl border backdrop-blur-sm transition-all duration-300
+                  className={`relative group p-10 rounded-3xl border-2 shadow-xl transition-all duration-300 overflow-hidden
                     ${award.special 
-                      ? 'bg-white/15 border-white/30 hover:bg-white/20' 
-                      : 'bg-white/10 border-white/20 hover:bg-white/15'}`}
+                      ? 'bg-gradient-to-br from-indigo/20 via-pink-200/10 to-white/10 border-pink-400/30 hover:border-pink-400/60' 
+                      : 'bg-gradient-to-br from-white/10 to-indigo/10 border-white/20 hover:border-gold/40'}`}
                 >
-                  <div className="flex items-start gap-5 mb-6">
-                    <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${award.gradient} flex items-center justify-center font-black text-3xl text-white shadow-lg flex-shrink-0`}>
+                  {/* Accent ring */}
+                  <div className={`absolute -top-8 -right-8 w-32 h-32 rounded-full opacity-20 blur-2xl z-0
+                    ${award.special ? 'bg-gradient-to-br from-pink-400 via-indigo-400 to-yellow-300' : 'bg-gradient-to-br from-gold via-indigo-200 to-white'}`}></div>
+                  <div className="relative z-10 flex flex-col items-center text-center">
+                    <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${award.gradient} flex items-center justify-center font-black text-4xl text-white shadow-lg mb-6 border-4 border-white/20 group-hover:scale-105 transition-transform duration-300`}>
                       {award.rank}
                     </div>
-                    <div className="flex-1">
-                      <h4 className="text-xl font-bold text-white mb-2">{award.title}</h4>
-                    </div>
+                    <h4 className="text-2xl font-bold text-gold mb-2 tracking-tight drop-shadow">{award.title}</h4>
+                    <p className="text-white/90 text-base mb-4 leading-relaxed min-h-[48px]">{award.description}</p>
+                    <div className="h-px bg-gradient-to-r from-gold/30 via-white/20 to-indigo/20 my-4 w-2/3 mx-auto"></div>
+                    <p className="text-white/70 text-xs mb-4 leading-relaxed min-h-[40px]">{award.details}</p>
+                    {award.certificate && (
+                      <div className="flex items-center justify-center gap-2 text-gold text-sm mt-2">
+                        <Award size={18} />
+                        <span>รวมเกียรติบัตรอิเล็กทรอนิกส์</span>
+                      </div>
+                    )}
                   </div>
-                  
-                  <p className="text-white/90 text-sm mb-4 leading-relaxed">
-                    {award.description}
-                  </p>
-                  
-                  <div className="h-px bg-white/20 my-4"></div>
-                  
-                  <p className="text-white/70 text-xs mb-4 leading-relaxed">
-                    {award.details}
-                  </p>
-                  
-                  {award.certificate && (
-                    <div className="flex items-center gap-2 text-gold text-sm">
-                      <Award size={16} />
-                      <span>รวมเกียรติบัตรอิเล็กทรอนิกส์</span>
-                    </div>
-                  )}
                 </motion.div>
               ))}
             </div>
