@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Calendar, FileText, User, Award, Clock, MapPin, Globe, Menu, X, ChevronRight, Mail, Phone, Download, ExternalLink, Users, Presentation, BookOpen, Heart, Music } from 'lucide-react';
+import { Calendar, FileText, User, Award, Clock, MapPin, Globe, Menu, X, ChevronRight, Mail, Phone, Download, ExternalLink, Users, Presentation, BookOpen, Heart, Music, FileDown, Eye } from 'lucide-react';
 import { motion } from 'framer-motion';
 import logoImage from './assets/action4logo.png';
 import speakerImage from './assets/johngarzoli.jpg';
@@ -16,6 +16,7 @@ const NAV = [
   { href: '#speaker', label: 'วิทยากร' },
   { href: '#categories', label: 'ประเภทบทความ' },
   { href: '#timeline', label: 'กำหนดการ' },
+  { href: '#documents', label: 'เอกสาร' },
   { href: '#submission', label: 'ส่งบทความ' },
   { href: '#contact', label: 'ติดต่อ' },
 ];
@@ -103,16 +104,75 @@ const AWARDS = [
   }
 ];
 
+const DOCUMENTS = [
+  {
+    title: 'ลำดับการนำเสนอ',
+    subtitle: 'การประชุมวิชาการระดับชาติ',
+    description: 'รายชื่อและลำดับการนำเสนอผลงานของผู้เข้าร่วมทุกท่าน',
+    file: '/ลำดับการนำเสนอการประชุมวิชาการระดับชาติ.pdf',
+    icon: Presentation,
+    color: 'from-indigo-500 to-blue-600',
+    badge: 'ลำดับการนำเสนอ',
+  },
+  {
+    title: 'กำหนดการ',
+    subtitle: 'การประชุมวิชาการระดับชาติ',
+    description: 'ตารางกำหนดการและรายละเอียดกิจกรรมตลอดงานประชุมวิชาการ',
+    file: '/กำหนดการประชุมวิชาการระดับชาติ.pdf',
+    icon: Calendar,
+    color: 'from-laterite to-gold',
+    badge: 'กำหนดการ',
+  },
+];
+
+// PDF Viewer Component
+const PdfViewer = ({ file, title }) => {
+  const [showEmbed, setShowEmbed] = useState(false);
+
+  return (
+    <div className="mt-5">
+      {!showEmbed ? (
+        <button
+          onClick={() => setShowEmbed(true)}
+          className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-indigo/5 hover:bg-indigo/10 border border-indigo/20 hover:border-indigo/40 rounded-xl text-indigo/70 hover:text-indigo font-medium text-sm transition-all duration-200 group"
+        >
+          <Eye size={16} className="group-hover:scale-110 transition-transform duration-200" />
+          ดูเอกสารในหน้านี้
+        </button>
+      ) : (
+        <div className="rounded-xl overflow-hidden border border-indigo/20 shadow-inner bg-indigo/5">
+          <div className="flex items-center justify-between px-4 py-2.5 bg-indigo/10 border-b border-indigo/15">
+            <span className="text-xs font-semibold text-indigo/70 truncate">{title}</span>
+            <button
+              onClick={() => setShowEmbed(false)}
+              className="text-indigo/50 hover:text-indigo transition-colors duration-200 ml-3 flex-shrink-0"
+              aria-label="ปิด"
+            >
+              <X size={16} />
+            </button>
+          </div>
+          <iframe
+            src={`${file}#toolbar=0&navpanes=0&scrollbar=1`}
+            title={title}
+            className="w-full"
+            style={{ height: '520px' }}
+            loading="lazy"
+          />
+        </div>
+      )}
+    </div>
+  );
+};
+
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen font-sans text-indigo bg-cotton antialiased">
-      {/* Navbar - Enhanced with better contrast and spacing */}
+      {/* Navbar */}
       <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-indigo/10 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            {/* Logo */}
             <motion.button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="flex items-center group focus:outline-none focus:ring-2 focus:ring-gold rounded-lg"
@@ -126,7 +186,6 @@ const App = () => {
               />
             </motion.button>
 
-            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
               {NAV.map((item) => (
                 <a
@@ -140,7 +199,6 @@ const App = () => {
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="lg:hidden p-2 rounded-lg hover:bg-cotton transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gold"
@@ -155,7 +213,6 @@ const App = () => {
             </button>
           </div>
 
-          {/* Mobile Navigation */}
           {isMenuOpen && (
             <motion.div
               className="lg:hidden border-t border-indigo/10 py-4 space-y-1"
@@ -178,9 +235,8 @@ const App = () => {
         </div>
       </nav>
 
-      {/* Hero Section - Improved layout and readability */}
+      {/* Hero Section */}
       <header className="relative py-16 md:py-24 lg:py-32 bg-gradient-to-br from-white via-cotton to-indigo/5 overflow-hidden">
-        {/* Background decorations */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-indigo/10 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
           <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-laterite/10 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
@@ -207,7 +263,6 @@ const App = () => {
               การประชุมวิชาการระดับชาติด้านดนตรี สำหรับนิสิตนักศึกษาระดับปริญญาตรี ครั้งที่ 4
             </motion.div>
 
-            {/* Theme title - Now in single line with better responsive handling */}
             <motion.h1
               className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-indigo mb-6 leading-tight px-4"
               initial={{ opacity: 0, y: 20 }}
@@ -264,9 +319,8 @@ const App = () => {
         </div>
       </header>
 
-      {/* About Section - Improved readability and spacing */}
+      {/* About Section */}
       <section id="about" className="py-20 md:py-32 bg-white relative overflow-hidden">
-        {/* Subtle background pattern */}
         <div className="absolute inset-0 opacity-[0.02]" style={{
           backgroundImage: 'radial-gradient(circle, #1A3C59 1px, transparent 1px)',
           backgroundSize: '24px 24px'
@@ -280,18 +334,15 @@ const App = () => {
             viewport={{ once: true, margin: "-100px" }}
             className="text-center"
           >
-            {/* Section badge */}
             <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo/10 text-indigo font-semibold text-sm rounded-full border border-indigo/30 mb-6">
               <span className="w-2 h-2 bg-indigo rounded-full"></span>
               หัวข้อหลักของการประชุม
             </div>
 
-            {/* Main heading */}
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 text-indigo max-w-4xl mx-auto leading-tight">
               การฟังดนตรีอย่างลึกซึ้ง: ความเป็นมนุษย์ จิตใจ วัฒนธรรม และการศึกษา
             </h2>
 
-            {/* Content */}
             <div className="max-w-3xl mx-auto mb-12 space-y-6">
               <p className="text-base md:text-lg text-indigo/80 leading-relaxed">
                 การฟังอย่างลึกซึ้ง มิได้เป็นเพียงการได้ยินเสียง หากแต่เป็นศักยภาพของมนุษย์ที่บูรณาการการรับรู้ อารมณ์ ความทรงจำ และความเข้าใจทางวัฒนธรรมเข้าด้วยกัน สำรวจบทบาทของการฟังที่หล่อหลอมประสบการณ์ทางดนตรีในบริบทหลากหลาย ทั้งในเชิงประเพณี ชุมชน และการเรียนรู้ในสภาพแวดล้อมทางการศึกษา
@@ -301,7 +352,6 @@ const App = () => {
               </p>
             </div>
 
-            {/* Philosophy box */}
             <div className="relative max-w-4xl mx-auto">
               <div className="p-8 md:p-10 bg-gradient-to-br from-cotton to-indigo/5 rounded-2xl border border-indigo/20 shadow-lg">
                 <div className="flex items-start gap-3 mb-4">
@@ -319,7 +369,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Collaborating Institutions - Cleaner grid layout */}
+      {/* Collaborating Institutions */}
       <section id="collaboration" className="py-20 md:py-28 bg-cotton">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -388,7 +438,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Speaker Section - Enhanced visual hierarchy */}
+      {/* Speaker Section */}
       <section id="speaker" className="py-20 md:py-28 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -431,7 +481,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Presentation Categories - Improved card design */}
+      {/* Presentation Categories */}
       <section id="categories" className="py-20 md:py-28 bg-cotton">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -528,7 +578,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Timeline Section - Cleaner timeline design */}
+      {/* Timeline Section */}
       <section id="timeline" className="py-20 md:py-28 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -558,12 +608,10 @@ const App = () => {
                 viewport={{ once: true, margin: "-50px" }}
                 className="relative pl-10 pb-4"
               >
-                {/* Timeline line */}
                 {idx !== TIMELINE.length - 1 && (
                   <div className="absolute left-3.5 top-7 bottom-0 w-0.5 bg-indigo/20"></div>
                 )}
 
-                {/* Timeline dot */}
                 <div className={`absolute left-0 top-1.5 w-7 h-7 rounded-full border-3 border-white shadow-md flex items-center justify-center
                   ${item.highlight
                     ? 'bg-gradient-to-br from-laterite to-gold'
@@ -575,7 +623,6 @@ const App = () => {
                   )}
                 </div>
 
-                {/* Content card */}
                 <div className={`p-6 rounded-xl border transition-all duration-300 hover:shadow-md
                   ${item.highlight
                     ? 'bg-gradient-to-br from-laterite/5 to-gold/5 border-laterite/30'
@@ -603,9 +650,106 @@ const App = () => {
         </div>
       </section>
 
-      {/* Submission Section - Modern gradient design */}
+      {/* ===== DOCUMENTS SECTION ===== */}
+      <section id="documents" className="py-20 md:py-28 bg-cotton">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-16"
+          >
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo/10 text-indigo font-semibold text-sm rounded-full border border-indigo/30 mb-6">
+              <FileDown size={16} />
+              เอกสารประกอบการประชุม
+            </div>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-indigo mb-4">
+              เอกสารสำคัญ
+            </h2>
+            <p className="text-lg text-indigo/70 max-w-2xl mx-auto">
+              ดาวน์โหลดหรือดูเอกสารประกอบการประชุมวิชาการ ACTION ครั้งที่ 4 ได้ที่นี่
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {DOCUMENTS.map((doc, idx) => {
+              const Icon = doc.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                >
+                  <div className="bg-white rounded-2xl border border-indigo/15 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
+                    {/* Card Header */}
+                    <div className={`p-6 bg-gradient-to-br ${doc.color} text-white relative overflow-hidden`}>
+                      {/* Background decoration */}
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full translate-x-1/2 -translate-y-1/2"></div>
+                      <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full -translate-x-1/2 translate-y-1/2"></div>
+
+                      <div className="relative z-10 flex items-start gap-4">
+                        <div className="p-3 bg-white/20 rounded-xl backdrop-blur-sm shadow-md flex-shrink-0">
+                          <Icon size={28} />
+                        </div>
+                        <div>
+                          <span className="text-xs font-bold uppercase tracking-widest text-white/70 mb-1 block">
+                            {doc.badge}
+                          </span>
+                          <h3 className="text-xl font-black leading-tight">{doc.title}</h3>
+                          <p className="text-white/80 text-sm font-medium mt-0.5">{doc.subtitle}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Card Body */}
+                    <div className="p-6">
+                      <p className="text-indigo/70 text-sm leading-relaxed mb-5">
+                        {doc.description}
+                      </p>
+
+                      {/* Download Button */}
+                      <a
+                        href={doc.file}
+                        download
+                        className={`w-full flex items-center justify-center gap-2.5 py-3 px-5 bg-gradient-to-r ${doc.color} text-white font-bold text-sm rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2`}
+                      >
+                        <Download size={17} />
+                        ดาวน์โหลด PDF
+                      </a>
+
+                      {/* Inline PDF Viewer */}
+                      <PdfViewer file={doc.file} title={`${doc.title} ${doc.subtitle}`} />
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Info note */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true, margin: "-50px" }}
+            className="mt-8 p-5 bg-indigo/5 rounded-xl border border-indigo/15 flex items-start gap-3"
+          >
+            <div className="w-5 h-5 rounded-full bg-indigo/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-indigo text-xs font-black">i</span>
+            </div>
+            <p className="text-indigo/70 text-sm leading-relaxed">
+              หากไม่สามารถดูเอกสารได้ กรุณาดาวน์โหลดไฟล์ PDF และเปิดด้วยโปรแกรม PDF Reader
+              หรือติดต่อเราที่ <a href="mailto:action.4@gmail.com" className="text-laterite font-semibold hover:underline">action.4@gmail.com</a>
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Submission Section */}
       <section id="submission" className="py-20 md:py-28 bg-gradient-to-br from-indigo via-indigo/95 to-laterite text-white relative overflow-hidden">
-        {/* Background decoration */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-20 w-96 h-96 border border-white rounded-full"></div>
           <div className="absolute bottom-20 right-20 w-80 h-80 border border-white rounded-full"></div>
@@ -644,7 +788,6 @@ const App = () => {
                 รูปแบบการส่งบทความ
               </h3>
               <div className="space-y-5">
-                {/* Abstract */}
                 <div className="p-6 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
                   <div className="flex justify-between items-start mb-3">
                     <h4 className="text-xl font-bold text-gold">1. บทคัดย่อ</h4>
@@ -663,7 +806,6 @@ const App = () => {
                   </a>
                 </div>
 
-                {/* Full Paper */}
                 <div className="p-6 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
                   <div className="flex justify-between items-start mb-3">
                     <h4 className="text-xl font-bold text-gold">2. บทความฉบับเต็ม</h4>
@@ -894,6 +1036,11 @@ const App = () => {
                 <li>
                   <a href="#timeline" className="hover:text-gold transition-colors duration-200 flex items-center gap-2">
                     <ChevronRight size={14} /> กำหนดการ
+                  </a>
+                </li>
+                <li>
+                  <a href="#documents" className="hover:text-gold transition-colors duration-200 flex items-center gap-2">
+                    <ChevronRight size={14} /> เอกสาร
                   </a>
                 </li>
                 <li>
