@@ -632,23 +632,6 @@ const App = () => {
       {/* ===== DOCUMENTS SECTION ===== */}
       <section id="documents" className="py-20 md:py-28 bg-cotton">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          {/* Banner Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="mb-16 rounded-2xl overflow-hidden shadow-xl border border-indigo/15"
-          >
-            <img
-              src="/Action4 BG.jpg"
-              alt="ACTION 4th Conference Banner"
-              className="w-full h-auto object-cover"
-              loading="lazy"
-            />
-          </motion.div>
-
           {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
