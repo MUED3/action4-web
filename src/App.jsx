@@ -111,7 +111,7 @@ const DOCUMENTS = [
     description: 'รายชื่อและลำดับการนำเสนอผลงานของผู้เข้าร่วมทุกท่าน',
     file: '/ลำดับการนำเสนอการประชุมวิชาการระดับชาติ.pdf',
     icon: Presentation,
-    color: 'from-indigo-500 to-blue-600',
+    color: 'from-blue-600 to-blue-800',
     badge: 'ลำดับการนำเสนอ',
   },
   {
