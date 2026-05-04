@@ -104,27 +104,6 @@ const AWARDS = [
   }
 ];
 
-const DOCUMENTS = [
-  {
-    title: 'ลำดับการนำเสนอ',
-    subtitle: 'การประชุมวิชาการระดับชาติ',
-    description: 'รายชื่อและลำดับการนำเสนอผลงานของผู้เข้าร่วมทุกท่าน',
-    file: '/ลำดับการนำเสนอการประชุมวิชาการระดับชาติ.pdf',
-    icon: Presentation,
-    color: 'from-blue-600 to-blue-800',
-    badge: 'ลำดับการนำเสนอ',
-  },
-  {
-    title: 'กำหนดการ',
-    subtitle: 'การประชุมวิชาการระดับชาติ',
-    description: 'ตารางกำหนดการและรายละเอียดกิจกรรมตลอดงานประชุมวิชาการ',
-    file: '/กำหนดการประชุมวิชาการระดับชาติ.pdf',
-    icon: Calendar,
-    color: 'from-laterite to-gold',
-    badge: 'กำหนดการ',
-  },
-];
-
 // PDF Viewer Component
 const PdfViewer = ({ file, title }) => {
   const [showEmbed, setShowEmbed] = useState(false);
@@ -653,6 +632,7 @@ const App = () => {
       {/* ===== DOCUMENTS SECTION ===== */}
       <section id="documents" className="py-20 md:py-28 bg-cotton">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
           {/* Banner Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
@@ -669,6 +649,7 @@ const App = () => {
             />
           </motion.div>
 
+          {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -688,8 +669,37 @@ const App = () => {
             </p>
           </motion.div>
 
+          {/* Document Cards */}
           <div className="grid md:grid-cols-2 gap-8">
-            {DOCUMENTS.map((doc, idx) => {
+            {[
+              {
+                title: 'ลำดับการนำเสนอ',
+                subtitle: 'การประชุมวิชาการระดับชาติ',
+                description: 'รายชื่อและลำดับการนำเสนอผลงานของผู้เข้าร่วมทุกท่าน',
+                file: '/ลำดับการนำเสนอการประชุมวิชาการระดับชาติ.pdf',
+                icon: Presentation,
+                color: 'from-blue-600 to-blue-800',
+                badge: 'ลำดับการนำเสนอ',
+              },
+              {
+                title: 'กำหนดการ',
+                subtitle: 'การประชุมวิชาการระดับชาติ',
+                description: 'ตารางกำหนดการและรายละเอียดกิจกรรมตลอดงานประชุมวิชาการ',
+                file: '/กำหนดการประชุมวิชาการระดับชาติ.pdf',
+                icon: Calendar,
+                color: 'from-laterite to-gold',
+                badge: 'กำหนดการ',
+              },
+              {
+                title: 'ภาพพื้นหลัง Zoom',
+                subtitle: 'สำหรับผู้นำเสนอ',
+                description: 'ภาพพื้นหลังสำหรับตั้งค่าใน Zoom ระหว่างการนำเสนอผลงาน — ดาวน์โหลดและนำเข้าใน Virtual Background ของ Zoom',
+                file: '/Action4 BG.jpg',
+                icon: Globe,
+                color: 'from-teal-600 to-cyan-700',
+                badge: 'Virtual Background',
+              },
+            ].map((doc, idx) => {
               const Icon = doc.icon;
               return (
                 <motion.div
@@ -700,12 +710,11 @@ const App = () => {
                   viewport={{ once: true, margin: "-50px" }}
                 >
                   <div className="bg-white rounded-2xl border border-indigo/15 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
+
                     {/* Card Header */}
                     <div className={`p-6 bg-gradient-to-br ${doc.color} text-white relative overflow-hidden`}>
-                      {/* Background decoration */}
                       <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full translate-x-1/2 -translate-y-1/2"></div>
                       <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full -translate-x-1/2 translate-y-1/2"></div>
-
                       <div className="relative z-10 flex items-start gap-4">
                         <div className="p-3 bg-white/20 rounded-xl backdrop-blur-sm shadow-md flex-shrink-0">
                           <Icon size={28} />
@@ -733,19 +742,31 @@ const App = () => {
                         className={`w-full flex items-center justify-center gap-2.5 py-3 px-5 bg-gradient-to-r ${doc.color} text-white font-bold text-sm rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2`}
                       >
                         <Download size={17} />
-                        ดาวน์โหลด PDF
+                        {doc.file.endsWith('.pdf') ? 'ดาวน์โหลด PDF' : 'ดาวน์โหลด JPG'}
                       </a>
 
-                      {/* Inline PDF Viewer */}
-                      <PdfViewer file={doc.file} title={`${doc.title} ${doc.subtitle}`} />
+                      {/* Preview */}
+                      {doc.file.endsWith('.pdf') ? (
+                        <PdfViewer file={doc.file} title={`${doc.title} ${doc.subtitle}`} />
+                      ) : (
+                        <div className="mt-5 rounded-xl overflow-hidden border border-indigo/20 shadow-inner">
+                          <img
+                            src={doc.file}
+                            alt={doc.title}
+                            className="w-full h-auto object-cover"
+                            loading="lazy"
+                          />
+                        </div>
+                      )}
                     </div>
+
                   </div>
                 </motion.div>
               );
             })}
           </div>
 
-          {/* Info note */}
+          {/* Info Note */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -757,10 +778,11 @@ const App = () => {
               <span className="text-indigo text-xs font-black">i</span>
             </div>
             <p className="text-indigo/70 text-sm leading-relaxed">
-              หากไม่สามารถดูเอกสารได้ กรุณาดาวน์โหลดไฟล์ PDF และเปิดด้วยโปรแกรม PDF Reader
+              หากไม่สามารถดูเอกสารได้ กรุณาดาวน์โหลดไฟล์และเปิดด้วยโปรแกรมที่เหมาะสม
               หรือติดต่อเราที่ <a href="mailto:action.4@gmail.com" className="text-laterite font-semibold hover:underline">action.4@gmail.com</a>
             </p>
           </motion.div>
+
         </div>
       </section>
 
